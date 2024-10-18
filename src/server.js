@@ -41,7 +41,10 @@ app.register(fastifyStatic, {
 
 const start = async () => {
   try {
-    await app.listen({ port: 8888 });
+    app.listen({
+      port: process.env.PORT || 8888,
+      host: process.env.HOST || "localhost",
+    });
   } catch (e) {
     app.log.error(e);
     process.exit(1);
