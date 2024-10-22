@@ -7,9 +7,9 @@ import pages from "../pages/Index";
 const Router = () => {
   return (
     <PreactRouter>
-      {pages.map((page) => (
-        <page.component path={page.route} />
-      ))}
+      {pages.map((page) => {
+        return <page.component path={page.route} title={page.title} />;
+      })}
     </PreactRouter>
   );
 };

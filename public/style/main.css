@@ -1,9 +1,11 @@
 :root {
     --color-primary: #235ad1;
+    --color-black: #000000;
+    --color-text: #1e1e1e;
     --color-gray: #83879d;
     --color-gray-light: #d1dee3;
     --color-green: #44bc1e;
-    --font-size-nav: 18px: ;
+    --font-size-nav: 18px;
 }
 
 *,
@@ -17,6 +19,7 @@ body {
     height: 100%;
     width: 100%;
     margin: 0;
+    color: #1e1e1eee;
     line-height: 1;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -51,4 +54,9 @@ h6,
 p {
     font-size: inherit;
     font-weight: inherit;
+    color: inherit;
+}
+
+p {
+    margin: 0;
 }

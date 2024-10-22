@@ -1,5 +1,6 @@
 import resolve from "@rollup/plugin-node-resolve";
 import json from "@rollup/plugin-json";
+import styles from "rollup-plugin-styles";
 import { babel } from "@rollup/plugin-babel";
 
 export default [
@@ -35,6 +36,10 @@ export default [
     plugins: [
       resolve(),
       json(),
+      styles({
+        minimize: true,
+        inject: true,
+      }),
       babel({
         babelHelpers: "bundled",
         plugins: [

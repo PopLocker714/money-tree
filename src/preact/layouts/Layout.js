@@ -1,6 +1,5 @@
 // @ts-check
 import { h, Fragment } from "preact";
-import contaiener from "../../styles/container";
 import Nav from "./Nav";
 
 const Layout = ({ navColour, children }) => {

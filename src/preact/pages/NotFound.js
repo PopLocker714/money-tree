@@ -1,7 +1,11 @@
 import { h } from "preact";
 import Layout from "../layouts/Layout";
+import { useEffect } from "preact/hooks";
 
-const NotFound = () => {
+const NotFound = (title) => {
+  useEffect(() => {
+    document.title = title;
+  });
   return (
     <Layout navColour="lavender">
       <div class="flex-center">
@@ -10,9 +14,5 @@ const NotFound = () => {
     </Layout>
   );
 };
-
-const imgStyle = `
-    max-width: 100%;
-`;
 
 export default NotFound;

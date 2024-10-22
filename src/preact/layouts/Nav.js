@@ -21,7 +21,7 @@ const Nav = () => {
           </a>
         </div>
         <div class="nav-top__right">
-          <a class="nav__link" href="/">
+          <a class="nav__link" href="/recall">
             Обратный звонок
           </a>
           <span class="nav-separator"></span>
