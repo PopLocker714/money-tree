@@ -22,7 +22,6 @@ export default (html, title, apiUrl) => `
           ${main}
           ${common}
           ${nav}
-          ${swiper}
         </style>
     </head>
     <body>

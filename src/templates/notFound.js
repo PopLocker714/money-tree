@@ -17,19 +17,16 @@ export default (html, title, apiUrl) => `
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <script>window.__apiUrl = "${apiUrl}"</script>
         <style>
           ${main}
           ${common}
           ${nav}
-          ${swiper}
         </style>
     </head>
     <body>
         <div class="root" id="root">
             ${html}
         </div>
-        <script type="module" src="/client.js" async></script>
     </body>
     </html>
 `;

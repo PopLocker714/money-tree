@@ -1,21 +1,10 @@
 import Home from "./Home";
 import About from "./About";
 import Catalog from "./Catalog";
-import NotFound from "./NotFound";
 import Product from "./Product";
 import Recall from "./Recall";
 
 export default [
-  {
-    route: "/:pages",
-    component: NotFound,
-    title: "Страница не найдена",
-  },
-  {
-    route: "/:pages/:pages",
-    component: NotFound,
-    title: "Страница не найдена",
-  },
   {
     route: "/",
     component: Home,

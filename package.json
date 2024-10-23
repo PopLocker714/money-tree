@@ -4,12 +4,12 @@
   "description": "Fastify server-side renders Preact to html and serves with a Preact client.js bundle for DOM hydration. Powered by Rollup.",
   "main": "build/index.js",
   "scripts": {
-    "nodemon": "nodemon build/server.js",
+    "nodemon": "nodemon --env-file=.dev.env build/server.js",
     "rollup": "rollup --config --sourcemap --watch",
-    "dev": "npm run rollup & BOT_TOKEN=7912666665:AAHv3wme1WxRDfnaE8rGJIMF-k4xJPNMwnQ BOT_CHAT_ID=-4558989672 NODE_ENV=development npm run nodemon",
-    "start": "BOT_TOKEN=7912666665:AAHv3wme1WxRDfnaE8rGJIMF-k4xJPNMwnQ BOT_CHAT_ID=-4558989672 NODE_ENV=development node build/server.js",
+    "dev": "npm run rollup & npm run nodemon",
+    "start": "node --env-file=.prod.env build/server.js ",
     "build": "rollup --config",
-    "prod": "BOT_TOKEN=7912666665:AAHv3wme1WxRDfnaE8rGJIMF-k4xJPNMwnQ BOT_CHAT_ID=1327751779 NODE_ENV=production PORT=42109 HOST=xn----dtbebdaacaf9ecng1a.xn--80adxhks node build/server"
+    "prod": "node --env-file=.prod.env build/server"
   },
   "repository": {
     "type": "git",
@@ -27,10 +27,12 @@
   },
   "homepage": "https://github.com/sebringrose/fastify-preact-ssr#readme",
   "dependencies": {
-    "@fastify/static": "^6.10.2",
-    "axios": "^0.27.2",
-    "fastify": "^4.21.0",
-    "node-fetch": "^2.7.0",
+    "@fastify/cookie": "^11.0.1",
+    "@fastify/cors": "^10.0.1",
+    "@fastify/formbody": "^8.0.1",
+    "@fastify/static": "^8.0.2",
+    "fastify": "^5.0.0",
+    "nodemon": "^3.1.7",
     "preact": "^10.16.0",
     "preact-render-to-string": "^6.2.0",
     "preact-router": "^4.1.2",
@@ -41,7 +43,6 @@
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^7.1.3",
-    "nodemon": "^3.0.1",
     "rollup": "^1.32.1",
     "rollup-plugin-styles": "^1.5.2"
   }

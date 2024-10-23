@@ -38,7 +38,13 @@ const Nav = () => {
       <div class="nav-bottom">
         <div class="nav-bottom__left">
           <a href="/">
-            <img class="nav__logo" src="/Logo.png" alt="Денежное дерево" />
+            <img
+              width="172px"
+              height="56px"
+              class="nav__logo"
+              src="/Logo.png"
+              alt="Денежное дерево"
+            />
           </a>
           <CatalogBtn />
         </div>

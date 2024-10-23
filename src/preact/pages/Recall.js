@@ -1,6 +1,6 @@
 import { h } from "preact";
-import Layout from "../layouts/Layout";
 
+import Layout from "../layouts/Layout";
 import { useEffect, useRef, useState } from "preact/hooks";
 
 const Recall = ({ title }) => {
@@ -11,7 +11,6 @@ const Recall = ({ title }) => {
 
   useEffect(() => {
     document.title = title;
-    console.log(window.__apiUrl);
   }, [title]);
 
   const submit = async (e) => {
@@ -34,7 +33,6 @@ const Recall = ({ title }) => {
   };
 
   const toggle = () => {
-    console.log(checked);
     setChecked((prevChecked) => !prevChecked);
   };
 

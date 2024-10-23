@@ -1,3 +1,4 @@
+export default `
 .swiper-slide__text-container {
     display: flex;
     flex-direction: column;
@@ -730,3 +731,5 @@ button.swiper-pagination-bullet {
     backface-visibility: hidden;
     overflow: hidden;
 }
+
+`;

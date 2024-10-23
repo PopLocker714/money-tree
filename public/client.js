@@ -796,7 +796,7 @@ const UserSvg = props => y("svg", _extends({
 const UserBtn = () => {
   return y("a", {
     class: "",
-    href: "/catalog"
+    href: "/login"
   }, y(UserSvg, {
     class: "catalog-actions__svg"
   }));
@@ -871,6 +871,8 @@ const Nav = () => {
   }, y("a", {
     href: "/"
   }, y("img", {
+    width: "172px",
+    height: "56px",
     class: "nav__logo",
     src: "/Logo.png",
     alt: "\u0414\u0435\u043D\u0435\u0436\u043D\u043E\u0435 \u0434\u0435\u0440\u0435\u0432\u043E"
@@ -881,7 +883,6 @@ const Nav = () => {
 
 // @ts-check
 const Layout = ({
-  navColour,
   children
 }) => {
   return y(k, null, y(Nav, null), y("main", {
@@ -6363,17 +6364,6 @@ const style$3 = {
   `
 };
 
-const NotFound = title => {
-  p$1(() => {
-    document.title = title;
-  });
-  return y(Layout, {
-    navColour: "lavender"
-  }, y("div", {
-    class: "flex-center"
-  }, y("h2", null, "\u0421\u0442\u0430\u0440\u043D\u0438\u0446\u0430 \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D\u0430 :(")));
-};
-
 const Product = ({
   uid,
   title
@@ -6395,7 +6385,6 @@ const Recall = ({
   const refBtn = _();
   p$1(() => {
     document.title = title;
-    console.log(window.__apiUrl);
   }, [title]);
   const submit = async e => {
     e.preventDefault();
@@ -6416,7 +6405,6 @@ const Recall = ({
     }
   };
   const toggle = () => {
-    console.log(checked);
     setChecked(prevChecked => !prevChecked);
   };
   return y(Layout, {
@@ -6491,14 +6479,6 @@ const style$4 = {
 };
 
 var pages = [{
-  route: "/:pages",
-  component: NotFound,
-  title: "Страница не найдена"
-}, {
-  route: "/:pages/:pages",
-  component: NotFound,
-  title: "Страница не найдена"
-}, {
   route: "/",
   component: Home,
   title: "Денежное дерево"
@@ -6520,9 +6500,136 @@ var pages = [{
   title: "Обратный звонок"
 }];
 
+// @ts-check
+const AdminLayout = ({
+  children,
+  style
+}) => {
+  return y(k, null, y("main", {
+    style: style,
+    class: "main container"
+  }, children));
+};
+
+const Login = ({
+  title
+}) => {
+  const [login, setLogin] = h$1("");
+  const [pass, setPass] = h$1("");
+  p$1(() => {
+    console.log("123");
+    document.title = title;
+  });
+  const submit = async e => {
+    e.preventDefault();
+    console.log(e);
+    const res = await fetch(window.__apiUrl + "/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams({
+        login,
+        pass
+      })
+    }).then(res => res.json()).then(data => {
+      console.log(data);
+    }).catch(e => {
+      console.log(e);
+    });
+  };
+  return y(AdminLayout, {
+    style: style$5.container
+  }, y("h1", {
+    class: "title-h2"
+  }, "\u0412\u0445\u043E\u0434"), y("form", {
+    onSubmit: submit,
+    style: style$5.form
+  }, y("label", {
+    class: "input-label",
+    for: "login"
+  }, "Login"), y("input", {
+    value: login,
+    onInput: e => {
+      setLogin(e.currentTarget.value);
+    },
+    class: "input",
+    type: "text",
+    id: "login",
+    name: "login"
+  }), y("label", {
+    class: "input-label",
+    for: "pass"
+  }, "Password"), y("input", {
+    value: pass,
+    onInput: e => {
+      setPass(e.currentTarget.value);
+    },
+    class: "input",
+    type: "password",
+    id: "pass",
+    name: "pass"
+  }), y("button", {
+    style: style$5.btn
+  }, "\u0412\u043E\u0439\u0442\u0438")));
+};
+const style$5 = {
+  form: `
+    display: flex;
+    flex-direction: column;
+    max-width: 400px
+  `,
+  btn: `
+    border: none;
+    color: white;
+    padding: 10px 16px;
+    font-size: 16px;
+    border-radius: 16px;
+    width: fit-content;
+    background-color: #44BC1E;
+    cursor: pointer;
+  `,
+  labelContainer: `
+    margin-bottom: 10px
+  `,
+  container: `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  `
+};
+
+const Dashboard = ({
+  title
+}) => {
+  p$1(() => {
+    document.title = title;
+    console.log(title);
+  });
+  return y(Layout, {
+    navColour: "lavender"
+  }, y("h1", {
+    class: "title-h2"
+  }, "dashboard"), y("button", {
+    onClick: e => console.log("click"),
+    class: "title-h2"
+  }, "dashboard"));
+};
+
+var pagesAdmin = [{
+  route: "/login",
+  component: Login,
+  title: "Вход"
+}, {
+  route: "/dashboard",
+  component: Dashboard,
+  title: "Дашборд"
+}];
+
 //import React from  'preact'
 const Router = () => {
-  return y(D$1, null, pages.map(page => {
+  return y(D$1, null, [...pages, ...pagesAdmin].map(page => {
     return y(page.component, {
       path: page.route,
       title: page.title
@@ -6531,3 +6638,4 @@ const Router = () => {
 };
 
 E(Router(), document.querySelector("#root"));
+//# sourceMappingURL=client.js.map

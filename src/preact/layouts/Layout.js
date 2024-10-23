@@ -2,7 +2,7 @@
 import { h, Fragment } from "preact";
 import Nav from "./Nav";
 
-const Layout = ({ navColour, children }) => {
+const Layout = ({ children }) => {
   return (
     <>
       <Nav />

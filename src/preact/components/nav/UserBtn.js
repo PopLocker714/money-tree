@@ -4,7 +4,7 @@ import UserSvg from "./UserSvg";
 
 const UserBtn = () => {
   return (
-    <a class="" href="/catalog">
+    <a class="" href="/login">
       <UserSvg class="catalog-actions__svg" />
     </a>
   );

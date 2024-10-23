@@ -2,7 +2,7 @@ import { h } from "preact";
 import Layout from "../layouts/Layout";
 import { useEffect } from "preact/hooks";
 
-const NotFound = (title) => {
+const NotFound = ({ title }) => {
   useEffect(() => {
     document.title = title;
   });
