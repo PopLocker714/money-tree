@@ -6638,3 +6638,4 @@ const Router = () => {
 };
 
 E(Router(), document.querySelector("#root"));
+//# sourceMappingURL=client.js.map
