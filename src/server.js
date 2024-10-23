@@ -11,7 +11,7 @@ export const DB = {
   sessions: {},
 };
 
-import pages from "./preact/pages/Index";
+import pages from "./preact/pages/Index.js";
 import adminPages from "./preact/pages/AdminIndex";
 
 import htmlShell from "./templates/default";

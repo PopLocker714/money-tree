@@ -2,7 +2,7 @@
 import { h } from "preact";
 import { Router as PreactRouter } from "preact-router";
 
-import pages from "../pages/Index";
+import pages from "../pages/Index.js";
 import pagesAdmin from "../pages/AdminIndex";
 
 const Router = () => {
